@@ -4,13 +4,13 @@ class Article1 extends React.Component {
     constructor(props) {
         super(props);
         console.log(props);
-        //this.data = props;
+        //this.state = props.data
     }
 
     render() {
         return (
             <article>
-                <h2>asdf</h2>
+                <h2>{this.props.data.page1}</h2>
                 HTML Is Hyper Text Mark-up Language
             </article>
         );

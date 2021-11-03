@@ -1,13 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Nav extends React.Component {
+    constructor(props) {
+        super(props);
+        console.log(props.pagearr);
+    }
+
+    linkClick(e) {
+        e.preventDefault();
+        console.log('click');
+    }
+
     render() {
+        let objKeys = Object.keys(this.props.pagearr);
+        let list = [];
+        for (let i = 0; i < objKeys.length; i++) {
+            list.push(
+            <li key={this.props.pagearr[objKeys[i]].name}>
+                <Link to={this.props.pagearr[objKeys[i]].url}>
+                    {this.props.pagearr[objKeys[i]].name}
+                </Link>
+            </li>
+            );
+        }
         return (
             <nav>
                 <ul>
-                    <li><a href="article1">HTML</a></li>
-                    <li><a href="article2">CSS</a></li>
-                    <li><a href="article3">Javascript</a></li>
+                    {list}
                 </ul>
             </nav>
         );
